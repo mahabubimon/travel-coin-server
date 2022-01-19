@@ -15,7 +15,8 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB URI
-const uri = "mongodb+srv://travelcoinnfts:travelcoinnfts12@cluster0.ojn33.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri =
+  "mongodb+srv://travelcoinnfts:travelcoinnfts12@cluster0.ojn33.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 // Create Client in MongoDB
 const client = new MongoClient(uri, {
@@ -30,7 +31,7 @@ const run = async () => {
     const database = client.db("travel-coin");
     const africaCollection = database.collection("africa");
     const americaCollection = database.collection("america");
-    const antarcticaCollection = database.collection("antarctica");
+    const antarcticaCollection = database.collection("antarqtica");
     const asiaCollection = database.collection("asia");
     const europeCollection = database.collection("europe");
     const oceaniaCollection = database.collection("oceania");
@@ -44,10 +45,12 @@ const run = async () => {
       const america = await americaCollection.find({}).toArray();
       res.send(america);
     });
+
     app.get("/antarctica", async (req, res) => {
       const antarctica = await antarcticaCollection.find({}).toArray();
       res.send(antarctica);
     });
+
     app.get("/asia", async (req, res) => {
       const asia = await asiaCollection.find({}).toArray();
       res.send(asia);
